@@ -40,10 +40,10 @@ CREATE TABLE TRASHLOCATION(
 );
 
 CREATE TABLE TRASH(
-	TrashId VARCHAR(50) PRIMARY KEY,
-	Amount VARCHAR(50) NOT NULL,
 	TrashLocation VARCHAR(50) NOT NULL,
+	Amount VARCHAR(50) NOT NULL,
 	TrashType VARCHAR(50),
+	TrashId VARCHAR(50) PRIMARY KEY,
 	FOREIGN KEY(TrashLocation) REFERENCES TRASHLOCATION(TrashLocation)			
 );
 
@@ -81,3 +81,66 @@ CREATE TABLE ENERGYTRASH(
 	FOREIGN KEY(TrashId) REFERENCES TRASH(TrashId),
 	FOREIGN KEY(EnergyPlantId) REFERENCES ENERGYPLANT(EnergyPlantId)
 );
+
+
+-- change this to working directory
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/wuser.txt"
+INTO TABLE WUSER
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/collector.txt"
+INTO TABLE COLLECTOR
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/customer.txt"
+INTO TABLE CUSTOMER
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/student.txt"
+INTO TABLE STUDENT
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/volunteer.txt"
+INTO TABLE VOLUNTEER
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/trashlocation.txt"
+INTO TABLE TRASHLOCATION
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/trash.txt"
+INTO TABLE TRASH
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/reportedtrash.txt"
+INTO TABLE REPORTEDTRASH
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/purchasedtrash.txt"
+INTO TABLE PURCHASEDTRASH
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/collectedtrash.txt"
+INTO TABLE COLLECTEDTRASH
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/energyplant.txt"
+INTO TABLE ENERGYPLANT
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "/home/imtiazkhaled/Desktop/classes/Databases/wastewarp/data/energytrash.txt"
+INTO TABLE ENERGYTRASH
+FIELDS TERMINATED BY ","
+IGNORE 1 ROWS;
